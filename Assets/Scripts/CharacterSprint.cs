@@ -6,11 +6,11 @@ public class CharacterSprint : MonoBehaviour
 
     public void StartSprinting()
     {
-        movement.SetMoveSpeed(5);
+        movement.IncreaseMoveSpeed(5);
     }
 
     public void StopSprinting()
     {
-        movement.SetMoveSpeed(-5);
+        movement.IncreaseMoveSpeed(-5);
     }
 }

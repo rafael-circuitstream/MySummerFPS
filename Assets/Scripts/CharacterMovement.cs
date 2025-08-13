@@ -12,11 +12,11 @@ public class CharacterMovement : MonoBehaviour
 
         Vector3 sumOfDirections = forwardOrBackwards + leftOrRight;
 
-        controller.SimpleMove(sumOfDirections);
-
+        controller.Move(sumOfDirections * Time.deltaTime);
+        
     }
 
-    public void SetMoveSpeed(float newSpeed)
+    public void IncreaseMoveSpeed(float newSpeed)
     {
         moveSpeed += newSpeed;
     }

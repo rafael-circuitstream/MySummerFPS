@@ -8,7 +8,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private CharacterMovement movement;
     [SerializeField] private CharacterRotation rotation;
     [SerializeField] private CharacterSprint sprint;
-
+    [SerializeField] private CharacterJump jump;
+    [SerializeField] private CharacterShooting shooting;
     void Start()
     {
         Cursor.visible = false;
@@ -17,6 +18,7 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
+
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.z = Input.GetAxisRaw("Vertical");
         moveDirection = moveDirection.normalized;
@@ -24,16 +26,43 @@ public class PlayerInput : MonoBehaviour
         lookRotation.x = -Input.GetAxisRaw("Mouse Y");
         lookRotation.y = Input.GetAxisRaw("Mouse X");
 
-        movement.MoveCharacter(moveDirection);
-        rotation.RotateByAngles(lookRotation);
-
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if (movement != null)
         {
-            sprint.StartSprinting();
+            movement.MoveCharacter(moveDirection);
         }
-        else if(Input.GetKeyUp(KeyCode.LeftShift))
+
+        if (rotation != null)
         {
-            sprint.StopSprinting();
+            rotation.RotateByAngles(lookRotation);
+        }
+        
+        if (sprint != null)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                sprint.StartSprinting();
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                sprint.StopSprinting();
+            }
+        }
+
+        if(jump != null)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                jump.Jump();
+            }
+        }
+
+        if(shooting != null)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Pressing mouse button");
+                shooting.Shoot();
+            }
         }
     }
 }
