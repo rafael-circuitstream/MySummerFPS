@@ -10,4 +10,9 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, 5f);
         myRigidbody.AddForce(transform.forward * strength, ForceMode.Impulse);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log(collision.gameObject);
+    }
 }
