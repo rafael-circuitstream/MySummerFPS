@@ -25,22 +25,34 @@ public class PlayerInteract : MonoBehaviour
         {
             interactable = hitInfo.collider.GetComponent<IInteractable>();
             
-            if(interactable != null && interactable != currentInteraction)
+            if(interactable != null)
             {
+                //DETECTED INTERACTION ON MOUSE POSITION
+
                 currentInteraction = interactable;
                 interactable.OnInteractionHoverEnter();
             }
 
         }
 
-        if(interactable == null)
+        if(interactable == null) //NO NEW INTERACTION DETECTED
         {
+            if(currentInteraction != null) //IF THERE ARE ANY CURRENT INTERACTION, THEN "HOVER EXIT"
+            {
+                currentInteraction.OnInteractionHoverExit();
+            }
+
             currentInteraction = null;
         }
 
 
         if(Input.GetKeyDown(KeyCode.F) && currentInteraction != null)
         {
+            if(currentInteraction is CubeGrab cube)
+            {
+                cube.SetGrabPointOrigin(eyeOrigin);
+            }
+
             currentInteraction.OnInteract();
         }
 
