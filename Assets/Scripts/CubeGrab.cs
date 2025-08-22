@@ -42,7 +42,7 @@ public class CubeGrab : MonoBehaviour, IInteractable
 
     public void OnInteractionHoverEnter()
     {
-        
+
     }
 
     public void OnInteractionHoverExit()

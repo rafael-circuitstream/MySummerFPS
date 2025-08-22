@@ -7,12 +7,18 @@ public class Bullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Destroy(gameObject, 5f);
+        //Destroy(gameObject, 5f);
+        Invoke("ResetBullet", 5f);
         myRigidbody.AddForce(transform.forward * strength, ForceMode.Impulse);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void ResetBullet()
     {
-        //Debug.Log(collision.gameObject);
+        myRigidbody.linearVelocity = Vector3.zero;
+        myRigidbody.angularVelocity = Vector3.zero;
+
+        //call ' BulletPooling.ReturnBullet(this); '
+
+        gameObject.SetActive(false);
     }
 }
