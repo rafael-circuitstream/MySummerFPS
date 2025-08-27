@@ -1170,6 +1170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7483431853524668555, guid: 112856d0fee025b46bcef0609ec596ef, type: 3}
   availableBullets: []
+  unavailableBullets: []
 --- !u!1 &394600472
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,7 +3824,7 @@ Transform:
   m_GameObject: {fileID: 1884266527}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.07, y: 0, z: 8.46}
+  m_LocalPosition: {x: 1.07, y: 1.65, z: 8.46}
   m_LocalScale: {x: 13.3929615, y: 5.4, z: 14.4382715}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4671,7 +4672,7 @@ PrefabInstance:
       objectReference: {fileID: 437608654}
     - target: {fileID: 1971350201493350225, guid: 563b6f40715919144920053140e30cc0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.5
+      value: -5.59
       objectReference: {fileID: 0}
     - target: {fileID: 1971350201493350225, guid: 563b6f40715919144920053140e30cc0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4679,7 +4680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1971350201493350225, guid: 563b6f40715919144920053140e30cc0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.12
+      value: -5.75
       objectReference: {fileID: 0}
     - target: {fileID: 1971350201493350225, guid: 563b6f40715919144920053140e30cc0, type: 3}
       propertyPath: m_LocalRotation.w

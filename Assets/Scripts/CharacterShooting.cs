@@ -11,8 +11,15 @@ public class CharacterShooting : MonoBehaviour
     {
         Bullet newBullet = poolOfBullets.GetAvailableBullet();
 
+        //Didn't find available bullet from the pool
+        if(newBullet == null)
+        {
+            return;
+        }
+
         newBullet.transform.position = weaponTip.position;
         newBullet.transform.rotation = weaponTip.rotation;
         newBullet.gameObject.SetActive(true);
+        newBullet.UseBullet();
     }
 }

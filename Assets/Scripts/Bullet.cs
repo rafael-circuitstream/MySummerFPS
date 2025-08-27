@@ -2,14 +2,23 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    private BulletPooling poolOwner;
+
     [SerializeField] private Rigidbody myRigidbody;
     [SerializeField] private float strength;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public void UseBullet()
     {
-        //Destroy(gameObject, 5f);
+        //CancelInvoke();
+
         Invoke("ResetBullet", 5f);
         myRigidbody.AddForce(transform.forward * strength, ForceMode.Impulse);
+    }
+
+    public void InitializePooledBullet(BulletPooling owner)
+    {
+        poolOwner = owner;
+        //Do anything else as initializing
     }
 
     private void ResetBullet()
@@ -18,6 +27,7 @@ public class Bullet : MonoBehaviour
         myRigidbody.angularVelocity = Vector3.zero;
 
         //call ' BulletPooling.ReturnBullet(this); '
+        poolOwner.ReturnBullet(this);
 
         gameObject.SetActive(false);
     }
