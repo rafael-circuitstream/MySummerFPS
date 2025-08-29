@@ -4,7 +4,7 @@ using System.Collections;
 public class CharacterAI : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent myAgent;
-    [SerializeField] private Transform target;
+    //[SerializeField] private Transform target;
 
     private Vector3 lastPosition;
     private NpcState CurrentState;
@@ -53,14 +53,14 @@ public class CharacterAI : MonoBehaviour
         myAgent.SetDestination(destination);
     }
 
-    IEnumerator FindPathCoroutine()
-    {
-        while(true)
-        {
-            myAgent.SetDestination(target.position);
-            yield return new WaitForSeconds(2f);
-        }
+    //IEnumerator FindPathCoroutine()
+    //{
+    //    while(true)
+    //    {
+    //        myAgent.SetDestination(target.position);
+    //        yield return new WaitForSeconds(2f);
+    //    }
 
-    }
+    //}
     
 }

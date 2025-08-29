@@ -4,7 +4,7 @@ public class WanderNpcState : NpcState
 {
     public override void OnStateEnter()
     {
-        character.SetAgentDestination( new Vector3( Random.Range(-50, 50) , 0, Random.Range(-50, 50) ));
+        character.SetAgentDestination( new Vector3( Random.Range(-10, 10) , 0, Random.Range(-10, 10) ));
     }
 
     public override void OnStateExit()
