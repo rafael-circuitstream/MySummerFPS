@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5508482993495466710}
   - component: {fileID: 320210871987150849}
   - component: {fileID: 3615562610463329992}
+  - component: {fileID: 6685492603142032361}
   - component: {fileID: 8961227974968875808}
   m_Layer: 3
   m_Name: Player
@@ -86,6 +87,8 @@ MonoBehaviour:
   sprint: {fileID: 5508482993495466710}
   jump: {fileID: 320210871987150849}
   shooting: {fileID: 3615562610463329992}
+  commandGiver: {fileID: 6685492603142032361}
+  currentMouseClickStrategy: {fileID: 0}
 --- !u!114 &4941240929313541232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +180,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponTip: {fileID: 31066591297811810}
   poolOfBullets: {fileID: 0}
+--- !u!114 &6685492603142032361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4967456738321935084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9181330be11d3b843a30f4c89692c448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  companion: {fileID: 0}
 --- !u!54 &8961227974968875808
 Rigidbody:
   m_ObjectHideFlags: 0

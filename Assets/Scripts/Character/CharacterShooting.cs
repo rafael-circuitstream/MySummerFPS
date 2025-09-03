@@ -1,11 +1,15 @@
 using UnityEngine;
 
-public class CharacterShooting : MonoBehaviour
+public class CharacterShooting : MouseClickStrategy
 {
     //[SerializeField] private Bullet bulletPrefab;
     [SerializeField] private Transform weaponTip;
     [SerializeField] private BulletPooling poolOfBullets;
 
+    public override void ExecuteStrategy()
+    {
+        Shoot();
+    }
 
     public void Shoot()
     {

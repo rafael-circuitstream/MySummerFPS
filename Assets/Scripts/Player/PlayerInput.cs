@@ -10,6 +10,10 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private CharacterSprint sprint;
     [SerializeField] private CharacterJump jump;
     [SerializeField] private CharacterShooting shooting;
+    [SerializeField] private CommandGiver commandGiver;
+
+    [SerializeField] private MouseClickStrategy currentMouseClickStrategy;
+
     void Start()
     {
         Cursor.visible = false;
@@ -18,7 +22,6 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.z = Input.GetAxisRaw("Vertical");
         moveDirection = moveDirection.normalized;
@@ -56,13 +59,22 @@ public class PlayerInput : MonoBehaviour
             }
         }
 
-        if(shooting != null)
+        if(currentMouseClickStrategy != null)
         {
             if(Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Pressing mouse button");
-                shooting.Shoot();
+                currentMouseClickStrategy.ExecuteStrategy();
             }
+        }
+
+
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currentMouseClickStrategy = shooting;
+        }
+        else if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currentMouseClickStrategy = commandGiver;
         }
     }
 }

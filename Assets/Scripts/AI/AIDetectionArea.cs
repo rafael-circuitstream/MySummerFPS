@@ -17,7 +17,7 @@ public class AIDetectionArea : MonoBehaviour
         if(canSeeTarget == false)
         {
             RaycastHit hitInfo = new RaycastHit();
-
+            
             CharacterController character = other.GetComponent<CharacterController>();
 
             if(character == null)
@@ -27,8 +27,8 @@ public class AIDetectionArea : MonoBehaviour
 
             Vector3 directionToPlayer = (character.transform.position + character.center) - eyeOrigin.position;
 
-            bool hasHit = Physics.Raycast(eyeOrigin.position, directionToPlayer, out hitInfo);
-
+            bool hasHit = Physics.Raycast(eyeOrigin.position, directionToPlayer.normalized, out hitInfo);
+            
             if (hasHit && hitInfo.collider.transform == character.transform)
             {
                 canSeeTarget = true;
