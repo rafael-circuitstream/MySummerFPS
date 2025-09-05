@@ -6,6 +6,14 @@ public class CharacterShooting : MouseClickStrategy
     [SerializeField] private Transform weaponTip;
     [SerializeField] private BulletPooling poolOfBullets;
 
+    private void Awake()
+    {
+        if (poolOfBullets == null)
+        {
+            //No one dragged something to the pool of bullets
+            poolOfBullets = FindAnyObjectByType<BulletPooling>();
+        }
+    }
     public override void ExecuteStrategy()
     {
         Shoot();
